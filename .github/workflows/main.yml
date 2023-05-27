@@ -1,49 +1,47 @@
+- name: Setup Java JDK
 
-
-  uses: actions/setup-node@v2.5.2
+  uses: actions/setup-java@v1.4.4
 
   with:
 
-    # Set always-auth in npmrc
+    # The Java version to make available on the path. Takes a whole or semver Java version, or 1.x syntax (e.g. 1.8 => Java 8.x). Early access versions can be specified in the form of e.g. 14-ea, 14.0.0-ea, or 14.0.0-ea.28
 
-    always-auth: # optional, default is false
+    java-version: 
 
-    # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
+    # The package type (jre, jdk, jdk+fx)
 
-    node-version: # optional
+    java-package: # optional, default is jdk
 
-    # File containing the version Spec of the version to use.  Examples: .nvmrc, .node-version
+    # The architecture (x86, x64) of the package.
 
-    node-version-file: # optional
+    architecture: # optional, default is x64
 
-    # Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default.
+    # Path to where the compressed JDK is located. The path could be in your source repository or a local path on the agent.
 
-    architecture: # optional
+    jdkFile: # optional
 
-    # Set this option if you want the action to check for the latest available version that satisfies the version spec
+    # ID of the distributionManagement repository in the pom.xml file. Default is `github`
 
-    check-latest: # optional
+    server-id: # optional, default is github
 
-    # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN
+    # Environment variable name for the username for authentication to the Apache Maven repository. Default is $GITHUB_ACTOR
 
-    registry-url: # optional
+    server-username: # optional, default is GITHUB_ACTOR
 
-    # Optional scope for authenticating against scoped registries
+    # Environment variable name for password or token for authentication to the Apache Maven repository. Default is $GITHUB_TOKEN
 
-    scope: # optional
+    server-password: # optional, default is GITHUB_TOKEN
 
-    # Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.
+    # Path to where the settings.xml file will be written. Default is ~/.m2.
 
-    token: # optional, default is ${{ github.token }}
+    settings-path: # optional
 
-    # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm
+    # GPG private key to import. Default is empty string.
 
-    cache: # optional
+    gpg-private-key: # optional
 
-    # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
+    # Environment variable name for the GPG private key passphrase. Default is $GPG_PASSPHRASE.
 
-    cache-dependency-path: # optional
+    gpg-passphrase: # optional
 
-    # Deprecated. Use node-version instead. Will not be supported after October 1, 2019
 
-    version: # optional
